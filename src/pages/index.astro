@@ -1,24 +1,93 @@
 ---
 import Layout from "../components/Layout.astro";
-import MainCard from "src/components/MainCard.astro";
-import MediumPost from "@components/MediumPost";
-import MainContainer from "src/components/MainContainer.astro";
-import ContainerScroll from "@components/ContainerScroll.astro";
-import TextSlide from "@components/TextSlide.astro";
+
+import Header from "../components/Header.astro";
+import Ruleta from "../components/Ruleta.astro";
+import Snowflakes from "../components/Snowflakes.astro";
 ---
 
-<Layout title="Welcome to Astro Neumorphism template">
-	<MainCard />
-
-	<div class="block lg:hidden 2xl:block overflow-auto no-scrollbar">
-		<ContainerScroll>
-			<MediumPost client:visible />
-		</ContainerScroll>
-	</div>
-
-	<div class="hidden lg:flex 2xl:hidden">
-		<MainContainer>
-			<TextSlide />
-		</MainContainer>
-	</div>
+<Layout title="Ruleta de premios Gyros">
+	<main>
+		<Ruleta />
+		<div class="contenedorBoton">
+			<button id="girar" class="texto">Obtener Regalo</button>
+			<img class="estrella" src="/estrella.png" alt="estrella" />
+		</div>
+	</main>
+	<Snowflakes />
 </Layout>
+
+<style>
+	.contenedorBoton {
+		position: relative;
+	}
+	.texto {
+		position: relative;
+		color: #740206;
+		background-color: rgb(255, 255, 255);
+		padding: 6px 60px;
+		border-radius: 200px;
+		transition: color 0.3s ease;
+		overflow: hidden;
+		z-index: 1;
+		box-shadow:
+			inset 4px 4px 2px #740206,
+			inset -4px -4px 10px #ffffff;
+		font-size: 1.1rem;
+		transition: all 0.2s ease-in-out;
+		border: 2px solid rgb(206, 206, 206);
+		font-weight: 600;
+		text-transform: capitalize;
+	}
+
+	.texto::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0%; /* Ancho inicial del gradiente */
+		height: 100%;
+		background: linear-gradient(
+			to right,
+			#bd2130,
+			#740206
+		); /* Gradiente de izquierda a derecha */
+		transition: width 0.2s ease; /* Transición para el ancho */
+		z-index: -1; /* Para que el gradiente esté detrás del texto */
+	}
+
+	.texto:hover::before {
+		width: 100%; /* Ancho final del gradiente al hacer hover */
+	}
+
+	.texto:hover {
+		color: white;
+		box-shadow:
+			inset 2px 2px 5px #bcbcbc,
+			inset -2px -2px 5px #ffffff,
+			2px 2px 5px #bcbcbc,
+			-2px -2px 5px #ffffff;
+
+		/* Ancho final del gradiente al hacer hover */
+	}
+
+	.texto:hover ~ .estrella {
+		left: 220px;
+		/* Ancho final del gradiente al hacer hover */
+	}
+	main {
+		display: flex;
+		justify-content: space-evenly;
+		gap: 30px;
+		align-items: center;
+	}
+	.estrella {
+		position: absolute;
+		height: 90px;
+		top: -25px;
+		left: -25px;
+		z-index: 80;
+		transition: all 0.2s ease-in-out;
+		pointer-events: none;
+	}
+</style>

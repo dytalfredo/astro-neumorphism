@@ -1,0 +1,61 @@
+---
+
+---
+
+<div id="ruleta-container">
+    <img class="ruleta-fondo" src="/FondoRuleta.png" alt="Ruleta" />
+    <img
+        id="ruleta"
+        class="ruleta-premios"
+        src="/RuletaPremios.png"
+        alt="Ruleta"
+    />
+    <img class="ruleta-señal" src="/Señalizador.png" alt="Ruleta" />
+    <img class="ruleta-centro" src="/Centro.png" alt="Ruleta" />
+</div>
+
+<style>
+    #ruleta-container {
+        display: flex;
+        justify-content: center; /* Centra horizontalmente */
+        align-items: center;
+        position: relative; /* Para posicionar los elementos hijos */
+        width: 350px;
+        height: 350px;
+    }
+
+    .ruleta-fondo,
+    .ruleta-premios,
+    .ruleta-señal,
+    .ruleta-centro {
+        position: absolute;
+    }
+
+    .ruleta-fondo {
+        z-index: 1; /* Detrás de todo */
+        border: 2px 2px black solid;
+        box-shadow:
+            inset 2px 2px 5px #bcbcbc,
+            inset -2px -2px 5px #ffffff,
+            2px 2px 5px #bcbcbc,
+            -2px -2px 5px #ffffff;
+        border-radius: 200px;
+    }
+
+    .ruleta-premios {
+        z-index: 2;
+        width: 90%;
+        overflow: hidden; /* Importante para que las secciones no se salgan */
+    }
+
+    .ruleta-señal {
+        z-index: 3;
+        width: 90%;
+    }
+
+    .ruleta-centro {
+        z-index: 4;
+        overflow: hidden;
+        height: 15%;
+    }
+</style>

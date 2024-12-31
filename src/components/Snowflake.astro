@@ -1,0 +1,49 @@
+---
+interface Props {
+    delay: string;
+
+    left: string;
+}
+
+function generarNumeroAleatorio(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+const { delay, left } = Astro.props;
+const size = generarNumeroAleatorio(10, 15);
+const luminosidad = Math.floor(Math.random() * 31) + 70; // Luminosidad entre 70 y 100
+const duration = generarNumeroAleatorio(5, 15);
+console.log(duration);
+const color = `hsl(0, 0%, ${luminosidad}%)`;
+---
+
+<div
+    class="snowflake"
+    style={`animation-delay: ${delay}; animation-duration: ${duration}s; left: ${left}; font-size: ${size}px; color:${color};`}
+>
+    {Math.random() < 0.5 ? "❅" : "❆"}
+</div>
+
+<style>
+    .snowflake {
+        position: absolute;
+        top: -40px;
+        width: 10px;
+        height: 10px;
+        font-size: 30px;
+
+        border-radius: 50%;
+        opacity: 1;
+        animation: fall linear infinite;
+    }
+    @keyframes fall {
+        0% {
+            top: -10%;
+            transform: translateX(0px);
+        }
+        100% {
+            top: 100%;
+            transform: translateX(calc(100vw / 10));
+        }
+    }
+</style>

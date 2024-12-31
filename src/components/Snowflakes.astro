@@ -1,0 +1,43 @@
+---
+import Snowflake from "@components/Snowflake.astro";
+---
+
+<div class="snowflakes" aria-hidden="true">
+    <Snowflake delay="1s" left="10%" />
+    <Snowflake delay="0.5s" left="20%" />
+    <Snowflake delay="2s" left="30%" />
+    <Snowflake delay="1.5s" left="40%" />
+    <Snowflake delay="2.5s" left="50%" />
+    <Snowflake delay="3s" left="60%" />
+    <Snowflake delay="4s" left="70%" />
+    <Snowflake delay="3.5s" left="80%" />
+    <Snowflake delay="4.5s" left="90%" />
+    <Snowflake delay="55s" left="5%" />
+    <Snowflake delay="13s" left="15%" />
+    <Snowflake delay="6.5s" left="27%" />
+    <Snowflake delay="1s" left="3%" />
+    <Snowflake delay="1.5s" left="49%" />
+    <Snowflake delay="2.5s" left="50%" />
+    <Snowflake delay="7s" left="26%" />
+    <Snowflake delay="9s" left="78%" />
+    <Snowflake delay="6.5s" left="54%" />
+    <Snowflake delay="8s" left="62%" />
+    <Snowflake delay="7s" left="7%" />
+    <Snowflake delay="7.5s" left="67%" />
+    <Snowflake delay="6.5s" left="35%" />
+    <Snowflake delay="5s" left="5%" />
+    <Snowflake delay="10s" left="42%" />
+</div>
+<style>
+    .snowflakes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        color: white;
+        pointer-events: none;
+        z-index: 99;
+    }
+</style>
